@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated: Sun Feb 23 04:45:17 PM EST 2025 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<name>VitalEdit-Plugin</name>
+	<artifactId>vitaledit-plugin</artifactId>
+	<groupId>com.poixson</groupId>
+	<version>0.1.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<url>https://poixson.com</url>
+	<description>World editor</description>
+	<organization>
+		<name>PoiXson</name>
+		<url>https://poixson.com</url>
+	</organization>
+	<properties>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.license>AGPLv3+ADD-PXN-V1</project.license>
+		<java.version>21</java.version>
+		<maven.compiler.release>21</maven.compiler.release>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+
+		<snap>-SNAPSHOT</snap>
+
+		<!-- Maven Plugins -->
+		<maven-resources-plugin-version>3.3.1</maven-resources-plugin-version>
+		<maven-compiler-plugin-version>3.13.0</maven-compiler-plugin-version>
+		<maven-jar-plugin-version>3.4.2</maven-jar-plugin-version>
+		<maven-enforcer-plugin-version>3.5.0</maven-enforcer-plugin-version>
+		<versions-maven-plugin-version>2.18.0</versions-maven-plugin-version>
+		<maven-source-plugin-version>3.3.1</maven-source-plugin-version>
+		<git-commit-id-version>4.9.10</git-commit-id-version>
+
+		<!-- Dependencies -->
+		<common-core-version>[4.2.0${snap},4.3.0${snap})</common-core-version>
+		<vitalcore-base-version>[4.2.0${snap},4.3.0${snap})</vitalcore-base-version>
+
+	</properties>
+	<scm>
+		<url>https://git.poixson.com/summary/mc!VitalEdit.git</url>
+		<connection>scm:git:https://git.poixson.com/r/mc/VitalEdit.git</connection>
+		<developerConnection>scm:ssh://git.poixson.com/mc/VitalEdit.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<system>pxngit</system>
+		<url>https://github.com/PoiXson/VitalEdit-mirror/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>pxnJenkins</system>
+		<url>https://ci.poixson.com</url>
+	</ciManagement>
+	<licenses>
+		<license>
+			<name>AGPLv3+ADD-PXN-V1</name>
+			<url>https://www.gnu.org/licenses/agpl-3.0.html</url>
+		</license>
+		<license>
+			<name>ADD-PXN-V1</name>
+			<url>https://dl.poixson.com/ADD-PXN-V1.txt</url>
+		</license>
+	</licenses>
+
+	<build>
+		<directory>target/</directory>
+		<sourceDirectory>src/</sourceDirectory>
+		<outputDirectory>target/classes/</outputDirectory>
+		<finalName>${project.name}-${project.version}</finalName>
+		<resources>
+			<resource>
+				<directory>resources/</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>app.properties</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- Resource Plugin -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<version>${maven-resources-plugin-version}</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>png</nonFilteredFileExtension>
+						<nonFilteredFileExtension>jpg</nonFilteredFileExtension>
+						<nonFilteredFileExtension>gif</nonFilteredFileExtension>
+						<nonFilteredFileExtension>ico</nonFilteredFileExtension>
+						<nonFilteredFileExtension>pdf</nonFilteredFileExtension>
+						<nonFilteredFileExtension>bin</nonFilteredFileExtension>
+						<nonFilteredFileExtension>jar</nonFilteredFileExtension>
+						<nonFilteredFileExtension>zip</nonFilteredFileExtension>
+						<nonFilteredFileExtension>gz</nonFilteredFileExtension>
+						<nonFilteredFileExtension>tar</nonFilteredFileExtension>
+						<nonFilteredFileExtension>tgz</nonFilteredFileExtension>
+						<nonFilteredFileExtension>rar</nonFilteredFileExtension>
+						<nonFilteredFileExtension>rpm</nonFilteredFileExtension>
+						<nonFilteredFileExtension>deb</nonFilteredFileExtension>
+						<nonFilteredFileExtension>app</nonFilteredFileExtension>
+						<nonFilteredFileExtension>so</nonFilteredFileExtension>
+						<nonFilteredFileExtension>dll</nonFilteredFileExtension>
+						<nonFilteredFileExtension>phar</nonFilteredFileExtension>
+						<nonFilteredFileExtension>bin</nonFilteredFileExtension>
+						<nonFilteredFileExtension>hex</nonFilteredFileExtension>
+						<nonFilteredFileExtension>so</nonFilteredFileExtension>
+						<nonFilteredFileExtension>exe</nonFilteredFileExtension>
+						<nonFilteredFileExtension>cmd</nonFilteredFileExtension>
+						<nonFilteredFileExtension>scr</nonFilteredFileExtension>
+						<nonFilteredFileExtension>iso</nonFilteredFileExtension>
+						<nonFilteredFileExtension>class</nonFilteredFileExtension>
+						<nonFilteredFileExtension>o</nonFilteredFileExtension>
+						<nonFilteredFileExtension>a</nonFilteredFileExtension>
+						<nonFilteredFileExtension>obj</nonFilteredFileExtension>
+						<nonFilteredFileExtension>dll</nonFilteredFileExtension>
+						<nonFilteredFileExtension>lib</nonFilteredFileExtension>
+						<nonFilteredFileExtension>dylib</nonFilteredFileExtension>
+						<nonFilteredFileExtension>apk</nonFilteredFileExtension>
+						<nonFilteredFileExtension>war</nonFilteredFileExtension>
+						<nonFilteredFileExtension>ear</nonFilteredFileExtension>
+						<nonFilteredFileExtension>dump</nonFilteredFileExtension>
+						<nonFilteredFileExtension>db</nonFilteredFileExtension>
+						<nonFilteredFileExtension>out</nonFilteredFileExtension>
+						<nonFilteredFileExtension>output</nonFilteredFileExtension>
+						<nonFilteredFileExtension>swp</nonFilteredFileExtension>
+						<nonFilteredFileExtension>map</nonFilteredFileExtension>
+						<nonFilteredFileExtension>woff</nonFilteredFileExtension>
+						<nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+						<nonFilteredFileExtension>mp3</nonFilteredFileExtension>
+						<nonFilteredFileExtension>mp4</nonFilteredFileExtension>
+						<nonFilteredFileExtension>ogg</nonFilteredFileExtension>
+						<nonFilteredFileExtension>avi</nonFilteredFileExtension>
+						<nonFilteredFileExtension>mkv</nonFilteredFileExtension>
+						<nonFilteredFileExtension>wav</nonFilteredFileExtension>
+						<nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+				</configuration>
+			</plugin>
+			<!-- Compiler Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin-version}</version>
+				<configuration>
+					<source>21</source>
+					<target>21</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<!-- Jar Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin-version}</version>
+			</plugin>
+			<!-- Maven Version Enforcer Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${maven-enforcer-plugin-version}</version>
+				<inherited>true</inherited>
+				<executions>
+					<execution>
+						<id>enforce-maven-version</id>
+						<goals><goal>enforce</goal></goals>
+						<configuration>
+							<rules><requireMavenVersion><version>3.8.5</version></requireMavenVersion></rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Versions Plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>${versions-maven-plugin-version}</version>
+			</plugin>
+			<!-- Source Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin-version}</version>
+				<configuration>
+					<finalName>${project.name}-${project.version}</finalName>
+					<attach>false</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals><goal>jar</goal></goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Commit-ID Plugin -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>${git-commit-id-version}</version>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<phase>validate</phase>
+						<goals><goal>revision</goal></goals>
+					</execution>
+				</executions>
+				<configuration>
+					<dotGitDirectory>.git/</dotGitDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<artifactId>common-core</artifactId>
+			<groupId>com.poixson</groupId>
+			<version>${common-core-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<artifactId>vitalcore-base</artifactId>
+			<groupId>com.poixson</groupId>
+			<version>${vitalcore-base-version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+</project>
